@@ -3,22 +3,26 @@
 #include <iostream>
 
 #include "element/body/body.h"
-#include "element/car.h"
 #include "element/car/car.h"
 #include "element/engine/engine.h"
 #include "element/wheel/wheel.h"
 
 namespace visitor {
-void TestVisitor::visit(const element::wheel::Wheel &wheel) {
+template <>
+void Visitor::visit<element::wheel::Wheel>(const element::wheel::Wheel &wheel) {
   std::cout << "Visiting Wheel" << std::endl;
 }
-void TestVisitor::visit(const element::body::Body &body) {
+template <>
+void Visitor::visit<element::body::Body>(const element::body::Body &body) {
   std::cout << "Visiting Body" << std::endl;
 }
-void TestVisitor::visit(const element::car::Car &car) {
+template <>
+void Visitor::visit<element::car::Car>(const element::car::Car &car) {
   std::cout << "Visiting Car" << std::endl;
 }
-void TestVisitor::visit(const element::engine::Engine &engine) {
+template <>
+void Visitor::visit<element::engine::Engine>(
+    const element::engine::Engine &engine) {
   std::cout << "Visiting Engine" << std::endl;
 }
 }  // namespace visitor
