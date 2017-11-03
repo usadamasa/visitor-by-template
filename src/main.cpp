@@ -6,6 +6,6 @@
 
 int main() {
   element::car::Car car;
-  visitor::TestVisitor visitor;
+  visitor::Visitor visitor;
   car.accept(visitor);
 }
